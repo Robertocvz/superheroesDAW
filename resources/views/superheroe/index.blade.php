@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="container">
-<a href="{{url('/superheroe/create')}}"> Agregar nuevo superheroe</a>
-
+<a href="{{url('/superheroe/create')}}" class="btn btn-success" > Agregar nuevo superheroe</a>
+<br/>
+<br/>
     <table class="table table-primary">
         <thead>
             <tr>
@@ -19,7 +20,7 @@
             <tr>
              <td>{{$superheroe->id}}</td>
              <td>
-                <img width="50px" height="50x" src="{{asset('storage'.'/'.$superheroe->Foto)}}"/>
+                <img class="img-thumbnail img-fliud" width="50px" height="50x" src="{{asset('storage'.'/'.$superheroe->Foto)}}"/>
              {{$superheroe->Foto}}
             
             
@@ -29,12 +30,12 @@
              <td>{{$superheroe->InformacionAdicional}}</td>
              <td>
 
-             <a href="{{url('/superheroe/'.$superheroe->id.'/edit')}}"> editar</a>
+             <a href="{{url('/superheroe/'.$superheroe->id.'/edit')}}" class="btn btn-warning"> editar</a>
                 
-             <form action="{{url('/superheroe/'.$superheroe->id)}}" method="post">
+             <form action="{{url('/superheroe/'.$superheroe->id)}}" class="d-inline" method="post">
                 @csrf
                 {{method_field('DELETE')}}
-                <input type="submit"  onclick="return confirm('¿Quieres borrar?')" value="Borrar">
+                <input class="btn btn-danger" type="submit"  onclick="return confirm('¿Quieres borrar?')" value="Borrar">
             </form>
              
               </td>
