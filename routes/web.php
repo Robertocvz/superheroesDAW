@@ -19,10 +19,10 @@ Route::get('/', function () {
 });
 
 //Route::get('superheroe/create',[SuperheroeController::class,'create']);
-Route::resource('superheroe',SuperheroeController::class);
+Route::resource('superheroe',SuperheroeController::class)->middleware('auth');
 
 
-Auth::routes();
+Auth::routes(['register'=>false,'reset'=>false]);
 
 Route::get('/home', [SuperheroeController::class, 'index'])->name('home');
 
